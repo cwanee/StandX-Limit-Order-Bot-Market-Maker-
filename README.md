@@ -3,6 +3,12 @@
 ## Introduction
 **Standx Limit Order Bot** is a JavaScript-based automation tool designed to run directly in the browser's developer console on the Standx exchange. It automates the process of market making by maintaining a ladder of limit orders, managing open positions, and adjusting strategies based on real-time market volatility (ATR).
 
+🛡️ 100% Safe: No API keys required.
+
+🎯 Precision: Maintains the required 10bps active spread.
+
+⚡ Smart: Tries to avoid fills, but instantly closes them if hit to generate volume/Trading Points.
+  
 This script is ideal for traders looking to automate:
 - **Laddering Orders:** Automatically placing and maintaining buy/sell limit orders at specific Basis Point (BPS) distances.
 - **Risk Management:** Monitoring Average True Range (ATR) to pause trading during high volatility.
@@ -20,6 +26,8 @@ This script is ideal for traders looking to automate:
 *   **Auto-Cleanup**: Cancels orders that are "too far" (stale) or "too close" (risk of immediate execution) to the current price.
 *   **Position Auto-Close**: Detects and closes open positions immediately to reset the cycle.
 *   **DOM Interaction**: Works by interacting directly with the exchange's UI elements (buttons, inputs) rather than an API, making it easy to run without API keys.
+
+  
 
 ## Configuration
 You can adjust the `CONFIG` object at the top of the script to tailor the bot's behavior:
@@ -40,19 +48,20 @@ static CONFIG = {
 ## Installation & Usage
 
 1.  **Open the Exchange**: Navigate to `standx.com` (or your target exchange URL).
-2.  **Open Developer Console**: Press `F12` or `Ctrl+Shift+I` to open the browser's developer tools.
-3.  **Paste the Script**: Copy the entire content of `standx_limit_order.js` and paste it into the **Console** tab.
-4.  **Initialize**:
+2.  **Go to pers** and enable the indicator Average True Range (ATR)
+3.  **Open Developer Console**: Press `F12` or `Ctrl+Shift+I` to open the browser's developer tools.
+4.  **Paste the Script**: Copy the entire content of `standx_limit_order.js` and paste it into the **Console** tab.
+5.  **Initialize**:
     ```javascript
     const orderPlacer = new StandxLimitOrder();
     ```
-5.  **Start**:
+6.  **Start**:
     ```javascript
     orderPlacer.start();
     ```
     *The bot will now run every 30 seconds.*
 
-6.  **Stop**:
+7.  **Stop**:
     To stop the bot at any time, run:
     ```javascript
     orderPlacer.stop();
